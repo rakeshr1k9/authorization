@@ -1,6 +1,7 @@
 package in.ogmatech.authorization.service;
 
 import in.ogmatech.authorization.model.User;
+import in.ogmatech.authorization.model.UserRole;
 import in.ogmatech.authorization.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -18,8 +19,13 @@ public class UserServiceImpl implements UserDetailsService,UserService {
     @Autowired
     private UserRepository userRepository;
 
+    private UserRole userRole;
+
+    private User user;
+
     public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
-        User user = userRepository.findByUsername(userId);
+
+        user = userRepository.findByUsername(userId);
         if(user == null){
             throw new UsernameNotFoundException("Invalid username or password.");
         }
@@ -27,7 +33,7 @@ public class UserServiceImpl implements UserDetailsService,UserService {
     }
 
     private List getAuthority() {
-        return Arrays.asList(new SimpleGrantedAuthority("ROLE_ADMIN"));
+        return Arrays.asList(new SimpleGrantedAuthority(userRole.getRoll());
     }
 
     public List findAll() {
