@@ -106,8 +106,8 @@ public class AuthorizationConfig extends AuthorizationServerConfigurerAdapter {
         DefaultTokenServices defaultTokenServices = new DefaultTokenServices();
         defaultTokenServices.setTokenStore(tokenStore());
         defaultTokenServices.setSupportRefreshToken(true);
-        defaultTokenServices.setAccessTokenValiditySeconds(10);
-        defaultTokenServices.setRefreshTokenValiditySeconds(30);
+        defaultTokenServices.setAccessTokenValiditySeconds(604800);
+        defaultTokenServices.setRefreshTokenValiditySeconds(2592000);
         defaultTokenServices.setReuseRefreshToken(false);
         defaultTokenServices.setTokenEnhancer(accessTokenConverter());
         return defaultTokenServices;

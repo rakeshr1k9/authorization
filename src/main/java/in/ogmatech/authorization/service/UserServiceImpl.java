@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserDetailsService,UserService {
     }
 
     private List getAuthority() {
-        return Arrays.asList(new SimpleGrantedAuthority(userRole.getRoll());
+        return Arrays.asList(new SimpleGrantedAuthority("ROLE_ADMIN"));
     }
 
     public List findAll() {

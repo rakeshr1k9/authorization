@@ -13,7 +13,6 @@ public class Role {
     private byte isDeleted;
     private Date roleCat;
     private Date roleUat;
-    private Date roleDat;
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -62,12 +61,4 @@ public class Role {
         this.roleUat = roleUat;
     }
 
-    @Column(name = "role_dat", nullable = true)
-    public Date getRoleDat() {
-        return roleDat;
-    }
-
-    public void setRoleDat(Date roleDat) {
-        this.roleDat = roleDat;
-    }
 }

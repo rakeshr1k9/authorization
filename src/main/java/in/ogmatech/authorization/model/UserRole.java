@@ -11,7 +11,6 @@ public class UserRole {
     private long idUserRole;
     private Date userRoleCat;
     private Date userRoleUat;
-    private Date userRoleDat;
     private byte isDeleted;
 
     private User user;
@@ -45,15 +44,6 @@ public class UserRole {
 
     public void setUserRoleUat(Date userRoleUat) {
         this.userRoleUat = userRoleUat;
-    }
-
-    @Column(name = "user_role_dat", nullable = true)
-    public Date getUserRoleDat() {
-        return userRoleDat;
-    }
-
-    public void setUserRoleDat(Date userRoleDat) {
-        this.userRoleDat = userRoleDat;
     }
 
     @Column(name = "is_deleted", nullable = false)

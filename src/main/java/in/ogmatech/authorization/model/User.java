@@ -17,7 +17,6 @@ public class User {
     private byte isDeleted;
     private Date userCat;
     private Date userUat;
-    private Date userDat;
     private String userDeviceId;
 
     @Id
@@ -83,15 +82,6 @@ public class User {
 
     public void setUserUat(Date userUat) {
         this.userUat = userUat;
-    }
-
-    @Column(name = "user_dat", nullable = true)
-    public Date getUserDat() {
-        return userDat;
-    }
-
-    public void setUserDat(Date userDat) {
-        this.userDat = userDat;
     }
 
     @Column(name = "user_device_id", nullable = true, length = 45)
