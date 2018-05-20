@@ -18,7 +18,7 @@ import javax.annotation.Resource;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
-    @Resource(name = "userService")
+    @Autowired
     private UserDetailsService userDetailsService;
 
     @Autowired

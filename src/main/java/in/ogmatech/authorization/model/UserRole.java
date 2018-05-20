@@ -1,11 +1,17 @@
 package in.ogmatech.authorization.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.Set;
 
 @Entity
 @Table(name = "user_role")
+@EntityListeners(AuditingEntityListener.class)
 public class UserRole {
 
     private long idUserRole;
@@ -15,7 +21,7 @@ public class UserRole {
 
     private User user;
 
-    private Role roll;
+    private Role role;
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -28,7 +34,10 @@ public class UserRole {
         this.idUserRole = idUserRole;
     }
 
-    @Column(name = "user_role_cat", nullable = true)
+    @JsonIgnoreProperties(allowGetters = true)
+    @Column(name = "user_role_cat", nullable = true, updatable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    @CreatedDate
     public Date getUserRoleCat() {
         return userRoleCat;
     }
@@ -37,7 +46,10 @@ public class UserRole {
         this.userRoleCat = userRoleCat;
     }
 
+    @JsonIgnoreProperties(allowGetters = true)
     @Column(name = "user_role_uat", nullable = true)
+    @Temporal(TemporalType.TIMESTAMP)
+    @LastModifiedDate
     public Date getUserRoleUat() {
         return userRoleUat;
     }
@@ -55,7 +67,7 @@ public class UserRole {
         this.isDeleted = isDeleted;
     }
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id", referencedColumnName = "id_user")
     public User getUser() {
         return user;
@@ -66,13 +78,13 @@ public class UserRole {
     }
 
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "role_id", referencedColumnName = "id_role")
-    public Role getRoll() {
-        return roll;
+    public Role getRole() {
+        return role;
     }
 
-    public void setRoll(Role roll) {
-        this.roll = roll;
+    public void setRole(Role role) {
+        this.role = role;
     }
 }
