@@ -15,9 +15,9 @@ import java.util.List;
 @EntityListeners(AuditingEntityListener.class)
 public class Role {
 
-    private long idRole;
+    private Integer idRole;
     private String roleName;
-    private byte isDeleted;
+    private Byte isDeleted;
     private Date roleCat;
     private Date roleUat;
 
@@ -26,11 +26,11 @@ public class Role {
     @Id
     @GeneratedValue
     @Column(name = "id_role", nullable = false)
-    public long getIdRole() {
+    public Integer getIdRole() {
         return idRole;
     }
 
-    public void setIdRole(long idRole) {
+    public void setIdRole(Integer idRole) {
         this.idRole = idRole;
     }
 
@@ -44,11 +44,11 @@ public class Role {
     }
 
     @Column(name = "is_deleted", nullable = true)
-    public byte getIsDeleted() {
+    public Byte getIsDeleted() {
         return isDeleted;
     }
 
-    public void setIsDeleted(byte isDeleted) {
+    public void setIsDeleted(Byte isDeleted) {
         this.isDeleted = isDeleted;
     }
 

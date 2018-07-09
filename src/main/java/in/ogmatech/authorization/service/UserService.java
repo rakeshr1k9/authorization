@@ -9,13 +9,13 @@ public interface UserService {
 
     User save(User user);
 
-    User findById(Long idUser);
+    User findById(Integer idUser);
 
     List<User> findAll();
 
     User update(User user);
 
-    void delete(Long idUser);
+    void delete(Integer idUser);
 
     void deleteAll();
 }

@@ -10,13 +10,13 @@ public interface RoleService {
 
     Role save(Role role);
 
-    Role findById(Long idUser);
+    Role findById(Integer idUser);
 
     List<Role> findAll();
 
     Role update(Role role);
 
-    void delete(Long idRole);
+    void delete(Integer idRole);
 
     void deleteAll();
 }

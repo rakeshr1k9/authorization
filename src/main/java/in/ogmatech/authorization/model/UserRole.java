@@ -14,10 +14,10 @@ import java.util.Set;
 @EntityListeners(AuditingEntityListener.class)
 public class UserRole {
 
-    private long idUserRole;
+    private Integer idUserRole;
     private Date userRoleCat;
     private Date userRoleUat;
-    private byte isDeleted;
+    private Byte isDeleted;
 
     private User user;
 
@@ -26,11 +26,11 @@ public class UserRole {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     @Column(name = "id_user_role", nullable = false)
-    public long getIdUserRole() {
+    public Integer getIdUserRole() {
         return idUserRole;
     }
 
-    public void setIdUserRole(long idUserRole) {
+    public void setIdUserRole(Integer idUserRole) {
         this.idUserRole = idUserRole;
     }
 
@@ -59,11 +59,11 @@ public class UserRole {
     }
 
     @Column(name = "is_deleted", nullable = false)
-    public byte getIsDeleted() {
+    public Byte getIsDeleted() {
         return isDeleted;
     }
 
-    public void setIsDeleted(byte isDeleted) {
+    public void setIsDeleted(Byte isDeleted) {
         this.isDeleted = isDeleted;
     }
 

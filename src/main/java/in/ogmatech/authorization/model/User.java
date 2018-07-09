@@ -15,11 +15,11 @@ import java.util.List;
 @EntityListeners(AuditingEntityListener.class)
 public class User {
 
-    private long idUser;
+    private Integer idUser;
     private String username;
     private String password;
-    private long userMobile;
-    private byte isDeleted;
+    private Long userMobile;
+    private Byte isDeleted;
     private Date userCat;
     private Date userUat;
     private String userDeviceIdentity;
@@ -29,11 +29,11 @@ public class User {
     @Id
     @GeneratedValue
     @Column(name = "id_user", nullable = false)
-    public long getIdUser() {
+    public Integer getIdUser() {
         return idUser;
     }
 
-    public void setIdUser(long idUser) {
+    public void setIdUser(Integer idUser) {
         this.idUser = idUser;
     }
 
@@ -46,7 +46,7 @@ public class User {
         this.username = username;
     }
 
-    @Column(name = "password", nullable = true, length = 45)
+    @Column(name = "password", nullable = true, length = 60)
     public String getPassword() {
         return password;
     }
@@ -56,20 +56,20 @@ public class User {
     }
 
     @Column(name = "user_mobile", nullable = true, precision = 0)
-    public long getUserMobile() {
+    public Long getUserMobile() {
         return userMobile;
     }
 
-    public void setUserMobile(long userMobile) {
+    public void setUserMobile(Long userMobile) {
         this.userMobile = userMobile;
     }
 
     @Column(name = "is_deleted", nullable = false)
-    public byte getIsDeleted() {
+    public Byte getIsDeleted() {
         return isDeleted;
     }
 
-    public void setIsDeleted(byte isDeleted) {
+    public void setIsDeleted(Byte isDeleted) {
         this.isDeleted = isDeleted;
     }
 
@@ -100,7 +100,7 @@ public class User {
     }
 
 
-    @Column(name = "user_device_identity", nullable = true, length = 45)
+    @Column(name = "user_device_identity", nullable = true, length = 20)
     public String getUserDeviceIdentity() {
         return userDeviceIdentity;
     }

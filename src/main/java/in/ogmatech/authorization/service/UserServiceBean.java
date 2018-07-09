@@ -57,7 +57,7 @@ public class UserServiceBean implements UserDetailsService,UserService {
     }
 
     @Override
-    public User findById(Long idUser) {
+    public User findById(Integer idUser) {
         return userRepository.findOne(idUser);
     }
 
@@ -74,7 +74,7 @@ public class UserServiceBean implements UserDetailsService,UserService {
     }
 
     @Override
-    public void delete(Long idUser) {
+    public void delete(Integer idUser) {
         userRepository.delete(idUser);
     }
 
